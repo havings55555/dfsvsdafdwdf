@@ -1,0 +1,82 @@
+:root{
+  --bg:#0b1020;
+  --panel:#171a2a;
+  --text:#e6eef8;
+  --note:skyblue; /* ✅ 채보 색: 하늘색 */
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans';
+  background:linear-gradient(180deg,#071024 0%, #071832 60%);
+  color:var(--text);
+}
+
+main{padding:18px; max-width:1100px; margin:0 auto}
+h1{font-size:20px;margin:6px 0 14px}
+
+#controls{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+#controls select, #controls button{padding:6px 10px;border-radius:8px;border:none;background:#0f1724;color:var(--text)}
+
+#layout{display:flex;gap:14px;align-items:flex-start}
+#game-area{
+  position:relative;
+  width:640px;
+  height:600px;
+  background:#051124;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,0.6);
+}
+#lanes{position:absolute;inset:0;pointer-events:none}
+.lane{position:absolute;top:0;bottom:0;width:25%;border-left:1px solid rgba(255,255,255,0.03)}
+
+#noteContainer{position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none}
+.note{
+  position:absolute;
+  width:80%;
+  left:10%;
+  height:20px;
+  background:var(--note);
+  border-radius:6px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.4);
+  transform:translateY(-40px);
+  transition: top 0.02s linear;
+}
+
+#hitLine{
+  position:absolute;
+  left:0;right:0;
+  height:6px;
+  bottom:120px;
+  background:rgba(96,165,250,0.14);
+  border-top:2px solid rgba(96,165,250,0.22);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+
+#countdown{
+  position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);
+  font-size:64px;color:#fff;text-shadow:0 6px 20px rgba(0,0,0,0.7);
+  display:none;
+}
+
+aside#side{
+  width:360px;background:var(--panel);padding:12px;border-radius:8px;
+  display:flex;flex-direction:column;gap:14px;
+}
+#scoreBoard{font-size:18px;line-height:1.8}
+#message{white-space:pre-line;color:#ffd57a;font-size:16px}
+
+/* 판정 텍스트 */
+.hit-text{
+  position:absolute;left:50%;transform:translateX(-50%);bottom:170px;font-weight:700;
+  text-shadow:0 6px 14px rgba(0,0,0,0.7);font-size:26px;
+}
+
+/* 반응형 간단 처리 */
+@media(max-width:900px){
+  #layout{flex-direction:column;align-items:center}
+  #game-area{width:92%}
+  aside#side{width:92%}
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>리듬게임 — 그 피의 기억</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>🎵 리듬게임 — 그 피의 기억 (End of the World)</h1>
+
+    <div id="controls">
+      <label>곡:
+        <select id="songSelect"></select>
+      </label>
+
+      <label>난이도:
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="normal">Normal</option>
+          <option value="hard">Hard</option>
+        </select>
+      </label>
+
+      <button id="startBtn">시작</button>
+      <button id="stopBtn">정지</button>
+    </div>
+
+    <div id="layout">
+      <div id="game-area">
+        <div id="lanes">
+          <!-- 4 레인: lane 0..3 -->
+          <div class="lane" style="left:0%"></div>
+          <div class="lane" style="left:25%"></div>
+          <div class="lane" style="left:50%"></div>
+          <div class="lane" style="left:75%"></div>
+        </div>
+
+        <div id="noteContainer"></div>
+        <div id="hitLine"></div>
+        <div id="countdown"></div>
+      </div>
+
+      <aside id="side">
+        <div id="scoreBoard">
+          <div>점수: <span id="score">0</span></div>
+          <div>콤보: <span id="combo">0</span></div>
+          <div>판정: <span id="lastJudgement">-</span></div>
+        </div>
+
+        <div id="message"></div>
+      </aside>
+    </div>
+
+  </main>
+
+  <script src="songs.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
